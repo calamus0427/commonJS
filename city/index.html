@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>城市三级联动</title>
+</head>
+<body>
+	<label>三级联动</label>
+	<div>
+        <select  id="allProvince">
+            <option value="">请选择省份</option>
+        </select>
+        <select  id="allCity" >
+            <option value="">请选择城市</option>
+        </select>
+        <select  id="allDistrict">
+            <option value="">请选择区县</option>
+        </select>             
+	</div>
+	
+<script src="http://cdn.bootcss.com/jquery/2.0.1/jquery.js"></script>
+<script src="allcity.js"></script>
+<script src="citychange.js"></script>
+<script>
+	$(function(){cityChange('allProvince','allCity','allDistrict');})
+</script>
+</body>
+</html>
