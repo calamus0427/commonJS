@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>radio_demo</title>
+    <style>
+        pre{
+            color:orange;
+        }
+    </style>
+</head>
+<body>
+<div style="text-align:center">
+    <div class="prop">
+        <h1>Prop方式修改checked</h1>
+        <pre>
+            $("#checkPropDemo1").click(function(){$("#prop1").prop("checked",true);});
+        </pre>
+        <input type="radio" name="attr" id="prop1" value="1"/>demo1
+        <input type="radio" name="attr" id="prop2" value="2" checked="checked"/>demo2
+        <input type="radio" name="attr" id="prop3" value="3" />demo3
+        <input type="radio" name="attr" id="prop4" value="4" />demo4
+        <input type="radio" name="attr" id="prop5" value="5" />demo5
+        <br>
+        <button id="checkPropDemo1">设置demo1选择</button>
+    </div>
+
+    <div class="attr" style="margin-top:40px;">
+        <h1>Attr方式修改checked</h1>
+        <pre>
+            $("#checkAttrDemo1").click(function(){$("#attr1").attr("checked",true);});
+        </pre>
+        <input type="radio" name="macTypeId" id="attr1" value="1"/>demo1
+        <input type="radio" name="macTypeId" id="attr2" value="2" checked="checked"/>demo2
+        <input type="radio" name="macTypeId" id="attr3" value="3" />demo3
+        <input type="radio" name="macTypeId" id="attr4" value="4" />demo4
+        <input type="radio" name="macTypeId" id="attr5" value="5" />demo5
+        <br>
+        <button id="checkAttrDemo1">设置demo1选择</button>
+    </div>
+</div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+    $("#checkPropDemo1").click(function(){
+        $("#prop1").prop("checked",true);
+    });
+    $("#checkAttrDemo1").click(function(){
+        $("#attr1").attr("checked",true);
+    });
+</script>
+</html>
