@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>删除json空子项</title>
+    <script>
+        var item = [{
+            "children": [{
+                "children": [{
+                    "children": [],
+                    "demo": "c1-1-1"
+                }],
+                "demo": "c1-1"
+            }],
+            "demo": "c1"
+        }, {
+            "children": [{
+                "children": [],
+                "demo": "c2-2-1"
+            }, {
+                "children": [],
+                "demo": "c2-2-2"
+            }],
+            "demo": "2"
+        }, {
+            "children": [],
+            "demo": "3"
+        }];
+        console.log(item);
+    </script>
+</head>
+
+<body>
+    <button onclick="delChildren(item)">删除子项</button>
+    <script>
+        function delChildren(json) {
+            for (var i = 0; i < json.length; i++) {
+                for (var obj in json[i]) {
+                    if (obj == "children") {
+                        var oChild = json[i].children;
+                        if (oChild.length === 0) {
+                            delete json[i].children;
+                        } else {
+                            delChildren(oChild);
+                        }
+                    }
+                }
+            }
+            console.log(json);
+            return json;
+        }
+        console.log(delChildren(item));
+    </script>
+</body>
+
+</html>
