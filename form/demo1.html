@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>点击变成input</title>
+</head>
+<body>
+<p id="name" tabindex="1">
+
+    <span id="change">aaaaaaaaaaa</span>
+</p>
+<p id="name1" tabindex="1">
+
+    <span id="change1">bbbbbbbbbbbb</span>
+</p>
+<p id="name2" tabindex="1">
+
+    <span id="change2">cccccccccccc</span>
+</p>
+<input class="in" id="content1" type="text" value="1222">
+<input class="in" id="content2" type="text" value=" 222222">
+<input class="in" id="content3" type="text" value="3333">
+
+<script src="http://cdn.bootcss.com/jquery/3.1.0/jquery.js"></script>
+<script>
+//    判断文本框输入为空或者空格
+    $(function(){ if($.trim($("#content").val()).length==0){alert("kong")}});
+	
+	//函数调用
+	$(function(){
+		changeInfo("#name");
+		changeInfo("#name1");
+		changeInfo("#name2");});
+	
+/**   功能：点击出现修改文本框,并且获取修改的内容
+**    参数：id
+**/
+    function changeInfo(id){
+            $(id).click(function() {
+                var td = $(this);
+                var txt = td.text();
+                var input = $("<input type='text'value='" + txt + "'/>");
+                td.html(input);
+                input.click(function() { return false; });
+			//获取焦点
+                input.trigger("focus");
+			//文本框失去焦点后提交内容，重新变为文本
+                input.blur(function() {
+                    var newtxt = $(this).val();
+			//判断文本有没有修改
+                    if (newtxt != txt) {
+                        td.html(newtxt)
+                    }
+                    else
+                    {
+                        td.html(newtxt);
+                    }
+                });
+            });
+    }
+</script>
+</body>
+</html>
