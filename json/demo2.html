@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="add()">添加父节点</button>
+    <script>
+        var demo = [{
+            "children": [{
+                "children": [{
+                    "children": [{
+                        "children": [{
+                            "children": [{
+                                "children": [],
+                                "index": "111111"
+                            }],
+                            "index": "11111"
+                        }, {
+                            "children": [],
+                            "index": "11112"
+                        }],
+                        "index": "1111"
+                    }, {
+                        "children": [],
+                        "index": "1112"
+                    }],
+                    "index": "111"
+                }, {
+                    "children": [{
+                        "children": [],
+                        "index": "1121"
+                    }, {
+                        "children": [],
+                        "index": "1122"
+                    }],
+                    "index": "112"
+                }, {
+                    "children": [],
+                    "index": "113"
+                }],
+                "index": "11"
+            }, {
+                "children": [],
+                "index": "12"
+            }],
+            "index": "1"
+        }];
+        console.log("old", demo);
+
+        function add() {
+            init(demo);
+            addNode(demo)
+            console.log("new", demo);
+        }
+
+        function init(item) {
+            for (let i = 0; i < item.length; i++) {
+                item[i]["parent"] = [];
+                item[i]["parent"].push(item[i]["index"]);
+                if (item[i].children.length !== 0) {
+                    var oChild = item[i].children;
+                    init(oChild);
+                }
+            }
+            return item;
+        }
+
+        function addNode(item) {
+            // debugger
+            for (let i = 0; i < item.length; i++) {
+                var parent = item[i]["parent"];
+                if (item[i].children.length !== 0) {
+                    var oChild = item[i].children;
+                    for (let j = 0; j < oChild.length; j++) {
+                        console.log("oChild", oChild);
+                        oChild[j]["parent"] = oChild[j]["parent"].concat(parent);
+                    }
+                    addNode(oChild);
+                }
+            }
+            return item;
+        }
+    </script>
+</body>
+
+</html>
