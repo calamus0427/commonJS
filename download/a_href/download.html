@@ -6,10 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link href="libs/font-awesome-4.7.0/css/font-awesome.min.css" type="text/css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 </head>
 
 <body>
-    <a href="/download/bg5.jpeg" download="calamus.jpg">下载</a>
+    <a href="./download/bg5.jpeg" download="calamus.jpg">下载</a>
+    <input type="button" onclick="Click()" id="download" value="Download" />
+    <script>
+        function Click() {
+            // window.location.href = "./download/bg5.zip";
+
+            var fileObj = document.getElementById("download");
+            var src = window.URL.createObjectURL(fileObj.files[0]);
+        }
+        // $('.download').click(function() {
+        //     var tt = new Date().getTime();
+        //     var url = './download/bg5.jpeg';
+        //     var form = $("<form>");
+        //     form.attr("style", "display:none");
+        //     form.attr("method", "get");
+        //     $("body").append(form);
+        //     var input1 = $("<input>");
+        //     input1.attr("type", "hidden");
+        //     input1.attr("name", "tt");
+        //     input1.attr("value", tt);
+        //     form.append(input1);
+        //     var input2 = $("<input>");
+        //     input2.attr("type", "hidden");
+        //     input2.attr("name", "companyId");
+        //     input2.attr("value", companyId);
+        //     form.append(input2);
+        //     form.submit();
+        // })
+    </script>
+
+
 </body>
 
 </html>
