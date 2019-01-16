@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>绝对定位的元素的margin减去宽高的一半</title>
+    <style lang="css">
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        .wrap {
+            width: 300px;
+            height: 300px;
+            background: rgba(0, 0, 0, 0.5);
+            text-align: center;
+            font-size: 0;
+        }
+        
+        .vamb {
+            display: inline-block;
+            width: 0px;
+            height: 100%;
+            vertical-align: middle;
+        }
+        
+        .test {
+            display: inline-block;
+            vertical-align: middle;
+            font-size: 16px;
+            text-align: left;
+            background: #FCE0F7;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <b class="vamb"></b>
+        <div class="test">
+            宽高不定<br> 垂直水平居中
+        </div>
+    </div>
+</body>
+
+</html>

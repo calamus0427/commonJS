@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>绝对定位的元素的margin减去宽高的一半</title>
+    <style lang="css">
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        img,
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: #FCE0F7;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -50px;
+            margin-left: -50px;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="../menhera.jpg" />
+    <!-- <div class="box"></div> -->
+</body>
+
+</html>
